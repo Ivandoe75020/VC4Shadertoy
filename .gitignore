@@ -1,0 +1,8 @@
+.vs/
+**/bin/
+**/obj/
+Generated Files/
+third_party/ffmpeg/x64/
+dist/
+exemples/
+ROADMAP.md

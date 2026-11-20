@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <CppWinRTOptimized>true</CppWinRTOptimized>
+    <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
+    <MinimalCoreWin>true</MinimalCoreWin>
+    <ProjectGuid>{7C2D5B1E-4A3F-4E8B-9D61-2F0A8C5E7B14}</ProjectGuid>
+    <ProjectName>VideoConverterForShadertoy</ProjectName>
+    <RootNamespace>VideoConverterForShadertoy</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>false</AppContainerApplication>
+    <AppxPackage>false</AppxPackage>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <TargetFrameworks>UAP,Version=v10.0</TargetFrameworks>
+    <TargetFramework>UAP,Version=v10.0</TargetFramework>
+    <NuGetTargetMoniker>native,Version=v0.0</NuGetTargetMoniker>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>VideoConverterForShadertoy</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <LinkIncremental>false</LinkIncremental>
+    <DebugInformationFormat>None</DebugInformationFormat>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level4</WarningLevel>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)ui;$(ProjectDir)third_party\ffmpeg\x64\include;$(GeneratedFilesDir);$(GeneratedFilesDir)ui;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;WINRT_LEAN_AND_MEAN;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj /utf-8 /external:I "$(ProjectDir)third_party\ffmpeg\x64\include"</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
+      <AdditionalLibraryDirectories>$(ProjectDir)third_party\ffmpeg\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avformat.lib;avcodec.lib;swscale.lib;swresample.lib;avutil.lib;mfplat.lib;mfuuid.lib;strmiids.lib;ole32.lib;windowscodecs.lib;winhttp.lib;crypt32.lib;bcrypt.lib;user32.lib;advapi32.lib;shell32.lib;gdi32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\AppInfo.h" />
+    <ClInclude Include="src\ExportSettings.h" />
+    <ClInclude Include="src\ShadertoyProject.h" />
+    <ClInclude Include="src\ShadertoyImporter.h" />
+    <ClInclude Include="src\Json.h" />
+    <ClInclude Include="src\IShaderRenderer.h" />
+    <ClInclude Include="src\OpenGLShaderRenderer.h" />
+    <ClInclude Include="src\IVideoEncoder.h" />
+    <ClInclude Include="src\IAudioSource.h" />
+    <ClInclude Include="src\ExportPipeline.h" />
+    <ClInclude Include="src\FFmpegAudioSource.h" />
+    <ClInclude Include="src\FFmpegEncoder.h" />
+    <ClInclude Include="src\FFmpegInfo.h" />
+    <ClInclude Include="src\FFmpegUtil.h" />
+    <ClInclude Include="src\Mp3Decoder.h" />
+    <ClInclude Include="ui\App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="ui\MainWindow.xaml.h">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ui\App.xaml" />
+    <Page Include="ui\MainWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\ExportPipeline.cpp" />
+    <ClCompile Include="src\Json.cpp" />
+    <ClCompile Include="src\ShadertoyImporter.cpp" />
+    <ClCompile Include="src\FFmpegAudioSource.cpp" />
+    <ClCompile Include="src\FFmpegEncoder.cpp" />
+    <ClCompile Include="src\FFmpegInfo.cpp" />
+    <ClCompile Include="src\FFmpegUtil.cpp" />
+    <ClCompile Include="src\Mp3Decoder.cpp" />
+    <ClCompile Include="src\OpenGLShaderRenderer.cpp" />
+    <ClCompile Include="ui\App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="ui\MainWindow.xaml.cpp">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ui\MainWindow.idl">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\VideoConverter.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="third_party\ffmpeg\licenses\FFmpeg-NOTICE.txt;third_party\ffmpeg\licenses\COPYING.LGPLv2.1;third_party\ffmpeg\licenses\COPYING.LGPLv3;third_party\ffmpeg\licenses\FFmpeg-LICENSE.md">
+      <DestinationFolders>$(OutDir)licenses</DestinationFolders>
+      <DeploymentContent>false</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\icons\load-json.svg;assets\icons\load-audio.svg;assets\icons\remove.svg;assets\icons\export-video.svg;assets\icons\cancel.svg;assets\icons\open-video.svg;assets\icons\open-folder.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CppWinRT" Version="2.0.240111.5" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240428000" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
+  </ItemGroup>
+  <Target Name="CleanReleaseBuildArtifacts" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+    <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)tools\prepare_release.ps1&quot; -OutputDirectory &quot;$(OutDir.TrimEnd('\'))&quot;" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
