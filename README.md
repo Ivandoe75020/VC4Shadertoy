@@ -4,6 +4,16 @@ Copyright (C) Asger Andersen
 
 Video converter for Shadertoy converts exported Shadertoy JSON projects and optional MP3 audio into H.264 MP4 video on Windows x64.
 
+## Screenshots
+
+| Start screen | Shader preview |
+|---|---|
+| ![The application start screen, ready to load a shader](assets/screenshots/01-start-screen.png) | ![A loaded Shadertoy shader rendered in the preview](assets/screenshots/02-shader-preview.png) |
+
+| Audio and export options | Export progress |
+|---|---|
+| ![An MP3 loaded with the export frame-rate options](assets/screenshots/03-audio-options.png) | ![An export in progress with its progress bar and cancel button](assets/screenshots/04-export-progress.png) |
+
 ## Requirements
 
 - Windows 10 1809 or newer, or Windows 11
